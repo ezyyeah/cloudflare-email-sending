@@ -1,0 +1,273 @@
+:root {
+  font-family:
+    "Söhne",
+    "Avenir Next",
+    "Helvetica Neue",
+    sans-serif;
+  color: #11211f;
+  background:
+    radial-gradient(circle at top left, rgba(242, 180, 84, 0.28), transparent 28%),
+    radial-gradient(circle at top right, rgba(75, 139, 117, 0.18), transparent 24%),
+    linear-gradient(180deg, #fff9f0 0%, #eef5ef 100%);
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100%;
+}
+
+body {
+  background: transparent;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+code {
+  font-family:
+    "Berkeley Mono",
+    "SFMono-Regular",
+    monospace;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 40px 20px 56px;
+}
+
+.hero,
+.layout {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+}
+
+.hero {
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.72rem;
+  color: #6e6657;
+}
+
+.hero h1 {
+  margin: 0;
+  max-width: 12ch;
+  font-family:
+    "Ivar Display",
+    "Georgia",
+    serif;
+  font-size: clamp(2.8rem, 7vw, 5.4rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+
+.lede {
+  margin: 16px 0 0;
+  max-width: 58ch;
+  font-size: 1.05rem;
+  color: #465551;
+}
+
+.layout {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+  align-items: start;
+}
+
+.panel {
+  border: 1px solid rgba(17, 33, 31, 0.08);
+  border-radius: 28px;
+  background: rgba(255, 253, 247, 0.84);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 22px 60px rgba(27, 45, 40, 0.08);
+}
+
+.formPanel {
+  padding: 28px;
+}
+
+.statusPanel {
+  padding: 28px;
+  position: sticky;
+  top: 20px;
+}
+
+.panelHeader {
+  margin-bottom: 18px;
+}
+
+.panelHeader h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.panelHeader p {
+  margin: 8px 0 0;
+  color: #536560;
+}
+
+form label {
+  display: block;
+  margin-bottom: 14px;
+}
+
+form label span {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 0.93rem;
+  color: #334440;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid rgba(17, 33, 31, 0.14);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.78);
+  padding: 14px 16px;
+  color: #10211f;
+  transition:
+    border-color 150ms ease,
+    box-shadow 150ms ease,
+    background 150ms ease;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #4b8b75;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(75, 139, 117, 0.12);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
+
+.actions button {
+  min-width: 140px;
+  padding: 13px 18px;
+  border-radius: 999px;
+  background: #173a35;
+  color: #fefcf5;
+  box-shadow: 0 12px 24px rgba(23, 58, 53, 0.18);
+}
+
+.actions button:hover:enabled {
+  transform: translateY(-1px);
+}
+
+.actions button:disabled {
+  cursor: not-allowed;
+  opacity: 0.58;
+  transform: none;
+}
+
+.actions .ghost {
+  background: #ecf1ea;
+  color: #163330;
+  box-shadow: none;
+}
+
+.error {
+  margin: 14px 0 0;
+  color: #ad2f2f;
+}
+
+.meta {
+  display: grid;
+  gap: 14px;
+  margin: 0 0 16px;
+}
+
+.meta div {
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(239, 244, 240, 0.9);
+}
+
+.meta dt {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #63726d;
+}
+
+.meta dd {
+  margin: 6px 0 0;
+  color: #173330;
+}
+
+pre {
+  overflow: auto;
+  margin: 0;
+  padding: 18px;
+  border-radius: 22px;
+  background: #11211f;
+  color: #d9efe8;
+  font-family:
+    "Berkeley Mono",
+    "SFMono-Regular",
+    monospace;
+  font-size: 0.92rem;
+}
+
+@media (max-width: 920px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .statusPanel {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding-inline: 14px;
+  }
+
+  .formPanel,
+  .statusPanel {
+    padding: 20px;
+    border-radius: 24px;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .actions button {
+    width: 100%;
+  }
+}

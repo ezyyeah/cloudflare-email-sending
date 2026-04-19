@@ -1,0 +1,27 @@
+{
+  "name": "cloudflare-email-example",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k -n convex,app -c blue,green \"pnpm dev:backend\" \"pnpm dev:frontend\"",
+    "dev:backend": "convex dev",
+    "dev:frontend": "next dev --hostname 127.0.0.1 --port 3000",
+    "build": "next build",
+    "start": "next start --hostname 127.0.0.1 --port 3000",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ezyyeah/cloudflare-email-sending": "workspace:*",
+    "convex": "1.35.1",
+    "next": "^15.5.5",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "concurrently": "^9.2.1",
+    "typescript": "5.9.3"
+  }
+}

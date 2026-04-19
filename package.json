@@ -1,0 +1,87 @@
+{
+  "name": "@ezyyeah/cloudflare-email-sending",
+  "version": "0.1.0",
+  "description": "A Convex component for durable transactional email sending through Cloudflare Email Service.",
+  "license": "Apache-2.0",
+  "keywords": [
+    "convex",
+    "component",
+    "cloudflare",
+    "email"
+  ],
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm --dir example dev",
+    "dev:example": "pnpm --dir example dev",
+    "build": "tsc --project ./tsconfig.build.json",
+    "build:codegen": "npx convex dev --once --codegen disable --typecheck disable --tail-logs disable --start 'sh -lc \"npx convex codegen --typecheck disable --component-dir ./src/component && npx convex codegen --typecheck disable && npm run build\"'",
+    "build:clean": "rm -rf dist *.tsbuildinfo && npm run build:codegen",
+    "prepack": "npm run build",
+    "typecheck": "tsc --noEmit && pnpm --dir example typecheck",
+    "test": "npm run typecheck && vitest run --typecheck"
+  },
+  "files": [
+    "dist",
+    "src",
+    "!src/**/*.test.ts",
+    "README.md",
+    "LICENSE"
+  ],
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/client/index.d.ts",
+      "default": "./dist/client/index.js"
+    },
+    "./test": "./src/test.ts",
+    "./_generated/component.js": {
+      "types": "./dist/component/_generated/component.d.ts"
+    },
+    "./_generated/component": {
+      "types": "./dist/component/_generated/component.d.ts"
+    },
+    "./convex.config.js": {
+      "types": "./dist/component/convex.config.d.ts",
+      "default": "./dist/component/convex.config.js"
+    },
+    "./convex.config": {
+      "types": "./dist/component/convex.config.d.ts",
+      "default": "./dist/component/convex.config.js"
+    }
+  },
+  "peerDependencies": {
+    "convex": "^1.35.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ezyyeah/cloudflare-email-sending.git"
+  },
+  "homepage": "https://github.com/ezyyeah/cloudflare-email-sending#readme",
+  "bugs": {
+    "url": "https://github.com/ezyyeah/cloudflare-email-sending/issues"
+  },
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "packageManager": "pnpm@10.10.0",
+  "dependencies": {
+    "@convex-dev/workpool": "^0.4.6"
+  },
+  "devDependencies": {
+    "@edge-runtime/vm": "^5.0.0",
+    "@types/node": "^24.12.2",
+    "chokidar-cli": "^3.0.0",
+    "convex": "1.35.1",
+    "convex-test": "0.0.49",
+    "typescript": "5.9.3",
+    "vite": "^7.1.12",
+    "vitest": "^4.1.4"
+  },
+  "types": "./dist/client/index.d.ts",
+  "main": "./dist/client/index.js",
+  "module": "./dist/client/index.js"
+}
